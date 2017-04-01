@@ -1,0 +1,123 @@
+.entry{
+	border:2 px solid red;
+	position: relative;
+	top:10px;
+	left:300px;
+}
+
+.back{
+
+	background-image: url("../images/3dr.jpg");
+	min-width: 100%;
+	min-height: 100%;
+}
+.style{
+	font-size: 40px !important; 
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	padding: 10px;
+	margin: 10px;
+}
+.h2style{
+	font-size: 26px;
+	color: white;
+	text-align: center;
+}
+
+.welcome{
+	font-size: 66px ;
+	color: red ;
+	font-weight: bold ;
+	text-align: center ;
+	background-color: white ;
+	position: relative;
+	top:500px;
+	left:500px;
+
+}
+
+.information{
+
+	background-image: url("../images/01.jpg");
+	position:relative;
+	top: 20px;
+	left:50px;
+	height: 1200px;
+	width: 1900px;
+	
+}
+
+.input{
+
+	font-size: 20px;
+	color:white;
+	margin:10px;
+	text-shadow: black 2px 2px;
+}
+
+label{
+	padding: 10px 50px 5px 20px;
+	font-size: 30px !important;
+	position: fixed;
+}
+
+input{
+	padding: 10px 50px 5px 20px;
+	margin:10px;	
+
+}
+#university{
+	position: fixed;
+	right:500px;
+	top:160px;
+}
+#luniversity{
+	position: fixed;
+	right:1100px;
+	top:160px;
+}
+#major{
+	position: fixed;
+	right:500px;
+	top:207px;
+
+}
+#lmajor{
+	position: fixed;
+	right:1100px;
+	top:207px;
+
+}
+#state{
+	position: fixed;
+	right:500px;
+	top:254px;
+}
+#lstate{
+	position: fixed;
+	right:1100px;
+	top:254px;
+}
+#city{
+	position: fixed;
+	right:500px;
+	top:301px;
+}
+#lcity{
+	position: fixed;
+	right:1100px;
+	top:301px;
+}
+#submit{
+	position: fixed;
+	right:500px;
+	top:360px;
+	color:black;
+	text-shadow: 2px 2px red;
+	font-size: 30px;
+	text-align: center;
+	padding: 10px;
+
+}
+
