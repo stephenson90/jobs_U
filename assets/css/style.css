@@ -2,7 +2,7 @@
 	border:2 px solid red;
 	position: relative;
 	top:10px;
-	left:300px;
+	left:40px;
 }
 
 .back{
@@ -32,7 +32,7 @@
 	text-align: center ;
 	background-color: white ;
 	position: relative;
-	top:500px;
+	top:700px;
 	left:500px;
 
 }
@@ -43,7 +43,7 @@
 	position:relative;
 	top: 20px;
 	left:50px;
-	height: 1200px;
+	height: 500px;
 	width: 1900px;
 	
 }
@@ -70,54 +70,65 @@ input{
 #university{
 	position: fixed;
 	right:500px;
-	top:160px;
+	top:170px;
 }
 #luniversity{
 	position: fixed;
 	right:1100px;
-	top:160px;
+	top:170px;
 }
 #major{
 	position: fixed;
 	right:500px;
-	top:207px;
+	top:217px;
 
 }
 #lmajor{
 	position: fixed;
 	right:1100px;
-	top:207px;
+	top:217px;
 
 }
 #state{
 	position: fixed;
 	right:500px;
-	top:254px;
+	top:264px;
 }
 #lstate{
 	position: fixed;
 	right:1100px;
-	top:254px;
+	top:264px;
 }
-#city{
-	position: fixed;
-	right:500px;
-	top:301px;
-}
-#lcity{
-	position: fixed;
-	right:1100px;
-	top:301px;
-}
+
 #submit{
 	position: fixed;
 	right:500px;
-	top:360px;
+	top:370px;
 	color:black;
 	text-shadow: 2px 2px red;
 	font-size: 30px;
 	text-align: center;
 	padding: 10px;
 
+}
+.footer{
+	height:40px;
+	position: fixed;
+	bottom: 0px;
+	font-size: 30px;
+	color: white;
+	text-shadow: red 2px 2px;
+	background-color: white;
+	padding: 5px;
+	margin-top:20px;
+	width: 100%;
+}
+
+.banner{
+	float:left;
+	width:275px;
+	height:550px;
+	margin:0 40px 0 40px;
+	
 }
 

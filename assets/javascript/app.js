@@ -39,7 +39,8 @@ function countDown(){
       if(clock===0){
         
       $(".entry").hide();
-      $(".information").show();    
+      $(".information").show(); 
+      $(".style h1").lettering("words");   
       
    
     stop();
