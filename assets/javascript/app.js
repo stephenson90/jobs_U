@@ -119,14 +119,22 @@ $("#submit").on("click", function(event){
   $(".information").hide();
   $(".job").show();
   $(".college").show();
-  var label = $("<labl>")
-  label.append(".luniversity");
-  var label2 = $(".lmajor");
-  var label3 = $(".lstate");
-  var search1 = $(".university");
-  var search2 = $(".major");
-  var search3 = $(".state");
-  $(".search").append(label + search1 +" "+label2 + search2 +" "+label3 + search3);
+  
+  $(".search").append($("#luniversity"));
+  $(".search").append($("#university"));
+  $(".search").append($("#lmajor"));
+  $(".search").append($("#major"));
+  $(".search").append($("#lstate"));
+  $(".search").append($("#state"));
+  $(".search").append($("#submit"));
+
+  $("#luniversity").css({"position":"relative","left":"0px", "font-size":"20px"});
+  $("#university").css({"position":"relative", "left":"0", "top":"0"});
+  $("#lmajor").css({"position":"relative","top":"0px", "left":"0px","font-size":"20px"});
+  $("#major").css({"position":"relative","top":"0px", "left":"0px","font-size":"20px"});
+  $("#lstate").css({"position":"relative","top":"0px", "left":"0px","font-size":"20px"});
+  $("#state").css({"position":"relative","top":"0px", "left":"0px","font-size":"20px"})
+  $("#submit").css({"position":"relative","top":"0px", "left":"0px","font-size":"20px"})
 
 
 });

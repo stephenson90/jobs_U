@@ -70,7 +70,7 @@
 label{
 	padding: 10px 50px 5px 20px;
 	font-size: 30px !important;
-	position: fixed;
+	position: fixed; 
 }
 
 input{
@@ -156,7 +156,7 @@ input{
 }
 
 .job{
-	background-image: url("../images/med.jpg");
+	background-image: url("../images/12.jpg");
 	height:600px;
 	width: 350px;
 	float:left;
@@ -168,12 +168,22 @@ input{
 
 .college{
 	background-image: url("../images/14.png");
+	background-repeat: no-repeat;
 	height:600px;
 	width: 900px;
 	position: relative;
 	left:400px;
 	border: 1px solid white;
 	margin-top:10px;
+
+}
+
+.search{
+	background-color: white;
+	margin:5px 0 5px 5px;
+	position:relative;
+	left:10px;
+	background-image: url("../images/7.jpg");
 
 }
 
