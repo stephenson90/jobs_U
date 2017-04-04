@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 $(".style").css({"position":"relative", "left":"-450px"});
 $(".h2style").hide();
 $(".information").hide();
@@ -133,23 +135,17 @@ $("#submit").on("click", function(event){
   $("#lmajor").css({"position":"relative","top":"0px", "left":"0px","font-size":"20px"});
   $("#major").css({"position":"relative","top":"0px", "left":"0px","font-size":"20px"});
   $("#lstate").css({"position":"relative","top":"0px", "left":"0px","font-size":"20px"});
-  $("#state").css({"position":"relative","top":"0px", "left":"0px","font-size":"20px"})
-  $("#submit").css({"position":"relative","top":"0px", "left":"0px","font-size":"20px"})
+  $("#state").css({"position":"relative","top":"0px", "left":"0px","font-size":"20px"});
+  $("#submit").css({"position":"relative","top":"0px", "left":"0px","font-size":"20px"});
 
+
+});
 
 });
 
 
 
-$.fn.extend({
-    animateCss: function (animationName) {
-        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-        this.addClass('animated ' + animationName).one(animationEnd, function() {
-            $(this).removeClass('animated ' + animationName);
-        });
-    }
-});
- 
+
 
 
 
