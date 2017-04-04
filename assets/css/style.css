@@ -1,0 +1,190 @@
+.intro{
+	height: 50px;
+	width: 900px;
+	position: relative;
+	left: 150px;
+}
+.entry{
+	
+	position: relative;
+	top:10px;
+	left:40px;
+}
+
+.back{
+
+	background-image: url("../images/3dr.jpg");
+	min-width: 100%;
+	min-height: 100%;
+}
+.style{
+	font-size: 40px !important; 
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	padding: 10px;
+	margin: 10px;
+	width:100%;
+	text-shadow: rgba(17, 130, 97, 0.34) 2px 2px;
+}
+.h2style{
+	font-size: 26px;
+	color: white;
+	text-align: center;
+	text-shadow: rgba(17, 130, 97, 0.34) 2px 2px;
+}
+
+.welcome{
+	font-size: 66px ;
+	color: red ;
+	font-weight: bold ;
+	text-align: center ;
+	background-color: white ;
+	position: relative;	
+	left:20px;
+	margin-bottom: 40px;
+	z-index: 1;
+	float: left;
+
+}
+
+.information{
+
+	background-image: url("../images/01.jpg");
+	position:relative;
+	top: 0px;
+	left:150px;
+	height: 300px;
+	width: 900px;
+	
+}
+
+.input{
+
+	font-size: 20px;
+	color:white;
+	margin:10px;
+	text-shadow: black 2px 2px;
+}
+
+label{
+	padding: 10px 50px 5px 20px;
+	font-size: 30px !important;
+	position: fixed; 
+}
+
+input{
+	padding: 10px 50px 5px 20px;
+	margin:10px;	
+
+}
+#university{
+	position: relative;
+	left:150px;
+	top:-220px;
+	
+}
+#luniversity{
+	position: relative;
+	left:-750px;
+	
+}
+#major{
+	position: relative;
+	left:70px;
+	top:-220px;
+
+}
+#lmajor{
+	position: relative;
+	
+	top:-220px;
+
+}
+#state{
+	position: relative;
+	left:85px;
+	top:-220px;
+}
+#lstate{
+	position: relative;
+	
+	top:-220px;
+}
+
+#submit{
+	position: relative;
+	left:350px;
+	top:-240px;
+	color:black;
+	text-shadow: 2px 2px red;
+	font-size: 30px;
+	text-align: center;
+	padding: 10px;
+
+}
+.footer{
+	height:40px;
+	position: fixed;
+	bottom: 0px;
+	font-size: 20px;
+	color: #111a94;
+	text-shadow: rgba(17, 130, 97, 0.34) 2px 2px;
+	background-color: white;
+	padding: 5px;
+	margin-top:20px;
+	width: 100%;
+	text-align: center;
+}
+
+.banner{
+	float:left;
+	width:275px;
+	height:550px;
+	margin:0 40px 0 140px;
+	border: 1px solid white;
+	
+}
+
+.banner2{
+	float:left;
+	width:275px;
+	height:550px;
+	margin:0 40px 0 40px;
+	border: 1px solid white;
+	
+}
+
+.job{
+	background-image: url("../images/12.jpg");
+	height:600px;
+	width: 350px;
+	float:left;
+	position: relative;
+	left:20px;
+	border: 1px solid white;
+	margin-top:10px;
+}
+
+.college{
+	background-image: url("../images/14.png");
+	background-repeat: no-repeat;
+	height:600px;
+	width: 900px;
+	position: relative;
+	left:400px;
+	border: 1px solid white;
+	margin-top:10px;
+
+}
+
+.search{
+	background-color: white;
+	margin:5px 0 5px 5px;
+	position:relative;
+	left:10px;
+	background-image: url("../images/7.jpg");
+
+}
+
+
