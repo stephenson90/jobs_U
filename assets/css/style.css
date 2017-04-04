@@ -193,12 +193,18 @@ input{
 .format{
 	border: 2px solide white;
 	position: relative;
-	top:390px;
+	top:100px;
 	left:290px;
 	}
 
 	.header {
   -webkit-animation: bounceInUp 1s;
+}
+
+#graphContainer1{
+	position: relative;	
+	left:-250px;
+	top:-600px;
 }
 
 

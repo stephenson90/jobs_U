@@ -229,7 +229,7 @@ $(document).ready(function(){
 
 
 // High Charts Data
-            new Highcharts.chart('container', {
+            new Highcharts.chart('graphContainer1', {
                 chart: {
                     type: 'column'
                 },
