@@ -8,21 +8,21 @@ $(document).ready(function(){
 
 
 //College Specific Global Variables
-    var schoolName= "cornell";
-    var schoolState= "ny";
+    var schoolName= "";
+    var schoolState= "";
     var queryUrlcollege = "https://api.data.gov/ed/collegescorecard/v1/schools?school.name=" + schoolName +
         "&school.state=" + schoolState + "&api_key=1zIVU67RxYTZrzQ8G1duOprvxvObqHYuEZnHzTKA";
 
 //Indeed Specific Global Variables
     var locationName = "";
-    var  major= "computer science";
+    var  major= "";
     var queryUrlIndeed = "https://crossorigin.me/https://api.indeed.com/ads/apisearch?publisher=5517424191311561&q=" + major + "&l=" +
-        locationName + "%2C+ny&sort=&radius=&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json    ";
+        locationName + "&sort=&radius=&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json";
 
 
     var schoolCity = "";
-    console.log(queryUrlcollege.replace(" ", "+"));
-    console.log(queryUrlIndeed);
+   // console.log(queryUrlcollege.replace(" ", "+"));
+   // console.log(queryUrlIndeed);
 
 
 
@@ -142,6 +142,131 @@ $(document).ready(function(){
 
     }
 
+   function collegeAjax () {
+       $.ajax({
+           url: queryUrlcollege.replace(" ", "+"),
+           method: "GET"
+       }).done(function collegeResponse(response1) {
+
+           var resultsCollege = response1.results;
+
+          // console.log("College stuff");
+          // console.log(resultsCollege[1]);
+          // console.log("resultsCollege[1][2010].completetion.school.city");
+
+          // console.log(resultsCollege[1].school.city);
+           //console.log(queryUrlcollege.replace(" ", "+"));
+
+
+           /* console.log(resultsCollege[1][2012].earnings["8_yrs_after_entry"].mean_earnings);
+
+            console.log(resultsCollege[1][2010].academics.program.degree);
+            console.log(resultsCollege[1][2010].cost.attendance.academic_year);
+            console.log(resultsCollege[1][2010].aid.loan_principal);
+            console.log(resultsCollege[1][2010].student.retention_rate.overall.full_time);
+            */
+           /*
+            console.log(resultsCollege[1][2010].student.demographics);
+
+            console.log(resultsCollege[1][2010].admissions.act_scores.midpoint);
+
+            console.log(resultsCollege[1][2010].admissions.sat_scores.midpoint);
+            */
+           //example iteration of value from  ***Data goes to 2014
+
+
+           console.log(resultsCollege[1][2010].earnings["6_yrs_after_entry"].working_not_enrolled.mean_earnings);
+           console.log(resultsCollege[1][2011].earnings["6_yrs_after_entry"].working_not_enrolled.mean_earnings);
+           console.log(resultsCollege[1][2012].earnings["6_yrs_after_entry"].working_not_enrolled.mean_earnings);
+
+           var mean2012 = resultsCollege[1][2010].earnings["6_yrs_after_entry"].working_not_enrolled.mean_earnings;
+           var mean2013 = resultsCollege[1][2011].earnings["6_yrs_after_entry"].working_not_enrolled.mean_earnings;
+           var mean2014 = resultsCollege[1][2012].earnings["6_yrs_after_entry"].working_not_enrolled.mean_earnings;
+           schoolCity = resultsCollege[1].school.city;
+           /* for (i = 2005; i < 2015; i++) {
+            console.log(resultsCollege[1][i].aid.loan_principal);
+            }*/
+           new Highcharts.chart('graphContainer1', {
+               chart: {
+                   type: 'column'
+               },
+               title: {
+                   text: 'Average Income of University vs National Average'
+               },
+
+               xAxis: {
+                   categories: [
+                       '2012',
+                       '2013',
+                       '2014'
+
+                   ],
+                   crosshair: true
+               },
+               yAxis: {
+                   min: 0,
+                   title: {
+                       text: 'Income (USD)'
+                   }
+               },
+               tooltip: {
+                   headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                   pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                   '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                   footerFormat: '</table>',
+                   shared: true,
+                   useHTML: true
+               },
+               plotOptions: {
+                   column: {
+                       pointPadding: 0.2,
+                       borderWidth: 0
+                   }
+               },
+
+               series: [{
+
+                   name: 'University Average',
+                   data: [mean2012, mean2013, mean2014]
+
+               }, {
+                   name: 'National Average',
+                   data: [MEANWAGE2010, MEANWAGE2011, MEANWAGE2012]
+
+
+               }]
+           })
+
+       })
+   }
+
+
+
+    function indeedAjax (major,locationName){   $.ajax({
+            url: queryUrlIndeed,
+            method: "GET"
+
+        }).done(function indeedResponse(response2) {
+           var resultsIndeed = response2.results;
+
+        queryUrlIndeed = "https://crossorigin.me/https://api.indeed.com/ads/apisearch?publisher=5517424191311561&q=" + major + "&l=" +
+            locationName + "&sort=&radius=&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json    ";
+
+        console.log("resultsIndeed");
+
+           console.log(resultsIndeed);
+           console.log(response2.totalResults);
+            console.log(queryUrlIndeed.replace(" ", "+"));
+           console.log("queryUrlcollege");
+           console.log(queryUrlcollege);
+       })
+    }
+
+//Examples of Pertinent Object info
+
+
+
+
     function submit (){
         $("#submit").on("click", function (event) {
             event.preventDefault();
@@ -156,14 +281,15 @@ $(document).ready(function(){
             locationName = schoolCity;
 
 
-            console.log( "*******************");
+            console.log("*******************");
             console.log(major);
             queryUrlcollege = "https://api.data.gov/ed/collegescorecard/v1/schools?school.name=" + schoolName +
                 "&school.state=" + schoolState + "&api_key=1zIVU67RxYTZrzQ8G1duOprvxvObqHYuEZnHzTKA";
-           queryUrlcollege = queryUrlcollege.replace(" ", "+");
+            queryUrlcollege = queryUrlcollege.replace(" ", "+");
             queryUrlIndeed = "https://crossorigin.me/https://api.indeed.com/ads/apisearch?publisher=5517424191311561&q=" + major + "&l=" +
-                locationName + "%2C+ny&sort=&radius=&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json    ";
-
+                locationName + "&sort=&radius=&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json    ";
+            indeedAjax(major, locationName );
+            collegeAjax();
 
             console.log(queryUrlIndeed);
 
@@ -184,140 +310,9 @@ $(document).ready(function(){
             $("#state").css({"position": "relative", "top": "0px", "left": "0px", "font-size": "20px"});
             $("#submit").css({"position": "relative", "top": "0px", "left": "0px", "font-size": "20px"});
 
-            $.ajax({
-                url: queryUrlcollege.replace(" ", "+"),
-                method: "GET"
-            }).done(function collegeResponse(response1) {
-
-                var resultsCollege = response1.results;
-
-                $.ajax({
-                    url: queryUrlIndeed,
-                    method: "GET"
-
-                }).done(function indeedResponse(response2) {
-                    var resultsIndeed = response2.results;
-
-                    submit();
-                    console.log("resultsIndeed");
-                    console.log(resultsIndeed);
-                    console.log(response2.totalResults);
-
-                    console.log( "queryUrlcollege");
-                    console.log( queryUrlcollege);
-
-
-//Examples of Pertinent Object info
-                    console.log("College stuff");
-                    console.log(resultsCollege[1]);
-                    console.log("resultsCollege[1][2010].completetion.school.city");
-
-                    console.log(resultsCollege[1].school.city);
-                    console.log(queryUrlcollege.replace(" ", "+"));
-
-                    console.log(queryUrlIndeed.replace(" ", "+"));
-                  /* console.log(resultsCollege[1][2012].earnings["8_yrs_after_entry"].mean_earnings);
-
-                   console.log(resultsCollege[1][2010].academics.program.degree);
-                   console.log(resultsCollege[1][2010].cost.attendance.academic_year);
-                   console.log(resultsCollege[1][2010].aid.loan_principal);
-                   console.log(resultsCollege[1][2010].student.retention_rate.overall.full_time);
-                   */
-
-
-                  /*
-                   console.log(resultsCollege[1][2010].student.demographics);
-
-
-                   console.log(resultsCollege[1][2010].admissions.act_scores.midpoint);
-
-
-                   console.log(resultsCollege[1][2010].admissions.sat_scores.midpoint);
-
-                   console.log(resultsIndeed);*/
-                    //example iteration of value from  ***Data goes to 2014
-
-                    console.log("resultsIndeed");
-                    console.log(resultsCollege[1][2010].earnings["6_yrs_after_entry"].working_not_enrolled.mean_earnings);
-                    console.log(resultsCollege[1][2011].earnings["6_yrs_after_entry"].working_not_enrolled.mean_earnings);
-                    console.log(resultsCollege[1][2012].earnings["6_yrs_after_entry"].working_not_enrolled.mean_earnings);
-
-                    var mean2012 = resultsCollege[1][2010].earnings["6_yrs_after_entry"].working_not_enrolled.mean_earnings;
-                    var mean2013 = resultsCollege[1][2011].earnings["6_yrs_after_entry"].working_not_enrolled.mean_earnings;
-                    var mean2014 = resultsCollege[1][2012].earnings["6_yrs_after_entry"].working_not_enrolled.mean_earnings;
-                    schoolCity = resultsCollege[1].school.city;
-                   /* for (i = 2005; i < 2015; i++) {
-                        console.log(resultsCollege[1][i].aid.loan_principal);
-                    }*/
-
-
-
-
-// High Charts Data
-                    new Highcharts.chart('graphContainer1', {
-                        chart: {
-                            type: 'column'
-                        },
-                        title: {
-                            text: 'Average Income of University vs National Average'
-                        },
-
-                        xAxis: {
-                            categories: [
-                                '2012',
-                                '2013',
-                                '2014'
-
-                            ],
-                            crosshair: true
-                        },
-                        yAxis: {
-                            min: 0,
-                            title: {
-                                text: 'Income (USD)'
-                            }
-                        },
-                        tooltip: {
-                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-                            footerFormat: '</table>',
-                            shared: true,
-                            useHTML: true
-                        },
-                        plotOptions: {
-                            column: {
-                                pointPadding: 0.2,
-                                borderWidth: 0
-                            }
-                        },
-
-                        series: [{
-
-                            name: 'University Average',
-                            data: [mean2012, mean2013,mean2014]
-
-                        }, {
-                            name: 'National Average',
-                            data: [MEANWAGE2010, MEANWAGE2011,MEANWAGE2012]
-
-
-                        }]
-                    });
-
-
-
-                });
-
-
-            });
         });
     }
-
-
-
-    submit()
-
+    submit();
 
 });
 
