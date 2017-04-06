@@ -13,14 +13,28 @@
 
 .back{
 
-	background-image: url("../images/3dr.jpg");
+	background-image: url("../images/lunar.jpg");
 	min-width: 100%;
 	min-height: 100%;
+	margin: auto;
 }
+
+.beaute{
+	background-image: url("../images/262.jpg"), url("../images/open.jpg");
+	width: 90%;
+	height: 770px;
+	position:relative;
+	top:100px;
+	left:70px;
+	border: 2px solid white;
+	margin: auto;
+
+}
+
 .style{
 	font-size: 40px !important; 
-	color: white;
-	font-weight: bold;
+	color: white !important;
+	font-weight: bold !important;
 	text-align: center;
 	padding: 10px;
 	margin: 10px;
@@ -45,17 +59,19 @@
 	margin-bottom: 40px;
 	z-index: 1;
 	float: left;
+	
 
 }
 
 .information{
 
-	background-image: url("../images/01.jpg");
+	background-image: url("../images/1024x.jpg");
 	position:relative;
-	top: 0px;
+	/*top: 0px;
 	left:150px;
-	height: 300px;
-	width: 900px;
+	height: 300px;*/
+	width: 75%;
+	margin: auto;
 	
 }
 
@@ -65,6 +81,7 @@
 	color:white;
 	margin:10px;
 	text-shadow: black 2px 2px;
+	
 }
 
 label{
@@ -80,38 +97,40 @@ input{
 }
 #university{
 	position: relative;
-	left:150px;
+	left:0px;
 	top:-220px;
 	color:black;
+
 	
 }
 #luniversity{
 	position: relative;
-	left:-750px;
+	left:-550px;
+	top:15px;
 	
 }
 #major{
 	position: relative;
-	left:70px;
+	left:-40px;
 	top:-220px;
 	color:black;
 
 }
 #lmajor{
 	position: relative;
-	
+	left:-60px;
 	top:-220px;
 
 }
 #state{
 	position: relative;
-	left:85px;
+	left:-30px;
 	top:-220px;
 	color:black;
 }
 #lstate{
 	position: relative;
-	
+	left:-60px;
 	top:-220px;
 }
 
@@ -124,6 +143,7 @@ input{
 	font-size: 30px;
 	text-align: center;
 	padding: 10px;
+	margin: auto;
 
 }
 .footer{
@@ -135,26 +155,29 @@ input{
 	text-shadow: rgba(17, 130, 97, 0.34) 2px 2px;
 	background-color: white;
 	padding: 5px;
-	margin-top:20px;
+	/*margin-top:20px;*/
 	width: 100%;
 	text-align: center;
+	margin: auto;
 }
 
 .banner{
 	float:left;
-	width:275px;
+	width:21%;
 	height:550px;
 	margin:0 40px 0 140px;
 	border: 1px solid white;
+	
 	
 }
 
 .banner2{
 	float:left;
-	width:275px;
+	width:21%;
 	height:550px;
 	margin:0 40px 0 40px;
 	border: 1px solid white;
+	
 	
 }
 
@@ -164,9 +187,10 @@ input{
 	width: 350px;
 	float:left;
 	position: relative;
-	left:20px;
+	left:15px;
 	border: 1px solid white;
-	margin-top:10px;
+	/*margin-top:10px;*/
+	margin: auto;
 }
 
 .college{
@@ -177,7 +201,7 @@ input{
 	position: relative;
 	left:400px;
 	border: 1px solid white;
-	margin-top:10px;
+	/*margin-top:10px;*/
 
 }
 
@@ -187,18 +211,26 @@ input{
 	position:relative;
 	left:10px;
 	background-image: url("../images/7.jpg");
+	
+
 
 }
 
 .format{
 	border: 2px solide white;
 	position: relative;
-	top:390px;
+	top:100px;
 	left:290px;
 	}
 
-	.header {
+	/*.header {
   -webkit-animation: bounceInUp 1s;
+}*/
+
+#graphContainer1{
+	position: relative;	
+	left:-250px;
+	top:-600px;
 }
 
 

@@ -34,10 +34,10 @@ $(document).ready(function(){
     function myMove() {
         var elem = document.getElementById("animate");
         var pos = 0;
-        var posl = -100;
+        var posl = -400;
         var id = setInterval(frame, 5);
         function frame() {
-            if (pos == 300) {
+            if (pos == 600) {
                 clearInterval(id);
             } else {
                 pos++;
@@ -79,7 +79,7 @@ $(document).ready(function(){
     }
 
     function startClock(){
-        var clock=2;
+        var clock=3;
 
         timeval = setInterval(downSouth, 1000);
 
@@ -101,7 +101,14 @@ $(document).ready(function(){
         }
 
     }
-
+$.fn.extend({
+    animateCss: function (animationName) {
+        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        this.addClass('animated ' + animationName).one(animationEnd, function() {
+            $(this).removeClass('animated ' + animationName);
+        });
+    }
+});
 
 // $(window).on("click", function(){
 //   //$(".style").show();
@@ -130,7 +137,7 @@ $(document).ready(function(){
                 $(".banner2").css({"height":"225px", "width":"138px"});
                 $(".information").show();
                 $(".welcome").hide();
-                //$(".style").lettering();
+                $(".style").animateCss("bounce");
 
 
             }
@@ -160,13 +167,14 @@ $(document).ready(function(){
         $(".search").append($("#state"));
         $(".search").append($("#submit"));
 
-        $("#luniversity").css({"position":"relative","left":"0px", "font-size":"20px"});
-        $("#university").css({"position":"relative", "left":"0", "top":"0"});
-        $("#lmajor").css({"position":"relative","top":"0px", "left":"0px","font-size":"20px"});
-        $("#major").css({"position":"relative","top":"0px", "left":"0px","font-size":"20px"});
-        $("#lstate").css({"position":"relative","top":"0px", "left":"0px","font-size":"20px"});
-        $("#state").css({"position":"relative","top":"0px", "left":"0px","font-size":"20px"});
+        $("#luniversity").css({"position":"relative","left":"-160px", "top":"-3px", "font-size":"20px"});
+        $("#university").css({"position":"relative", "left":"-165px", "top":"0"});
+        $("#lmajor").css({"position":"relative","top":"0px", "left":"-160px","font-size":"20px"});
+        $("#major").css({"position":"relative","top":"0px", "left":"-165px","font-size":"20px"});
+        $("#lstate").css({"position":"relative","top":"0px", "left":"-160px","font-size":"20px"});
+        $("#state").css({"position":"relative","top":"-62px", "left":"485px","font-size":"20px"});
         $("#submit").css({"position":"relative","top":"0px", "left":"0px","font-size":"20px"});
+        $(".beaute").css({"height":"970px"})
 
 
     });
@@ -229,7 +237,7 @@ $(document).ready(function(){
 
 
 // High Charts Data
-            new Highcharts.chart('container', {
+            new Highcharts.chart('graphContainer1', {
                 chart: {
                     type: 'column'
                 },
