@@ -167,14 +167,14 @@ $.fn.extend({
         $(".search").append($("#state"));
         $(".search").append($("#submit"));
 
-        $("#luniversity").css({"position":"relative","left":"-160px", "top":"-3px", "font-size":"20px"});
-        $("#university").css({"position":"relative", "left":"-165px", "top":"0"});
-        $("#lmajor").css({"position":"relative","top":"0px", "left":"-160px","font-size":"20px"});
-        $("#major").css({"position":"relative","top":"0px", "left":"-165px","font-size":"20px"});
-        $("#lstate").css({"position":"relative","top":"0px", "left":"-160px","font-size":"20px"});
-        $("#state").css({"position":"relative","top":"-62px", "left":"485px","font-size":"20px"});
-        $("#submit").css({"position":"relative","top":"0px", "left":"0px","font-size":"20px"});
-        $(".beaute").css({"height":"970px"})
+        $("#luniversity").css({"position":"relative","left":"-70px", "top":"-3px", "font-size":"20px"});
+        $("#university").css({"position":"relative", "left":"-75px", "top":"0"});
+        $("#lmajor").css({"position":"relative","top":"0px", "left":"-80px","font-size":"20px"});
+        $("#major").css({"position":"relative","top":"0px", "left":"-85px","font-size":"20px"});
+        $("#lstate").css({"position":"relative","top":"0px", "left":"-85px","font-size":"20px"});
+        $("#state").css({"position":"relative","top":"-2px", "left":"-85px","font-size":"20px"});
+        $("#submit").css({"position":"relative","top":"-4px", "left":"-10px","font-size":"20px"});
+        $(".beaute").css({"height":"970px", "width":"1450px"})
 
 
     });
