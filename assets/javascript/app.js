@@ -169,6 +169,63 @@ $(document).ready(function(){
 
             console.log(resultsCollege[1][2011].earnings["6_yrs_after_entry"].working_not_enrolled.mean_earnings);
             console.log(resultsCollege[1][2012].earnings["6_yrs_after_entry"].working_not_enrolled.mean_earnings);
+            var cost=resultsCollege[1][2012].cost.attendance.academic_year;
+            var retention= resultsCollege[1][2012].student.retention_rate.overall.full_time;
+            var loan= resultsCollege[1][2012].aid.loan_principal;
+            var sat= resultsCollege[1][2012].admissions.sat_scores.average.overall;
+            var collegediv =  $("<div class=‘item2’>");
+
+            if (cost=== null)
+            {
+                cost= "data not available";
+
+            }
+            else{
+                cost=cost;
+            }
+
+
+            if (loan=== null)
+            {
+                loan= "data not available";
+            }
+            else{
+                loan=loan;
+            }
+
+
+            if (retention=== null)
+            {
+                retention= "data not available";
+            }
+            else
+            {
+                retention=retention;
+            }
+
+
+            if (sat===null)
+            {
+                sat= "data not available";
+
+            }
+            else
+            {
+                sat=sat;
+            }
+
+            var p3 = $("<p>").text("The cost of attendance is:" +" "+ cost);
+            var p4 = $("<p>").text("The student retention rate is:" + " "+ retention);
+            var p5 = $("<p>").text("The Aid loan principal is:" + " "+ loan);
+            var p6 = $("<p>").text("The average admissions SAT scores is:" + " "+ sat);
+
+            collegediv.append(p3);
+            collegediv.append(p4);
+            collegediv.append(p5);
+            collegediv.append(p6);
+
+            $(".college").append(collegediv);
+
 
             //Chart 1 data
 
@@ -292,7 +349,7 @@ $(document).ready(function(){
 
     function indeedAjax (major,locationName){
         queryUrlIndeed = "https://crossorigin.me/https://api.indeed.com/ads/apisearch?publisher=5517424191311561&q=" + major + "&l=" +
-            locationName + "&sort=&radius=&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json    ";
+            locationName + "&sort=&radius=&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json";
 
 
         $.ajax({
@@ -308,7 +365,21 @@ $(document).ready(function(){
             console.log(resultsIndeed);
             console.log(response2.totalResults);
             console.log(queryUrlIndeed.replace(" ", "+"));
+            for (var i= 0; i<10; i++)
+            {
 
+                var jobsdiv =  $("<div class=‘item’>");
+                var job_snippet = resultsIndeed[i].snippet;
+                var job_jobtitle = resultsIndeed[i].jobtitle;
+                var p1 = $("<p>").text(resultsIndeed[i].snippet);
+                var link = resultsIndeed[i].url;
+                var job_link = $("<a href="+ link + ">" + job_jobtitle + "</a>");
+
+                jobsdiv.append(job_link);
+                jobsdiv.append(p1);
+                $(".job").append(jobsdiv);
+
+            }
 
         })
     }
