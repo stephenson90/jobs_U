@@ -136,7 +136,7 @@ $(document).ready(function(){
         }
 
     }
-    function collegeAjax () {
+    function collegeAjax (schoolName, schoolState) {
         var queryUrlcollege = "https://api.data.gov/ed/collegescorecard/v1/schools?school.name=" + schoolName +
             "&school.state=" + schoolState + "&api_key=1zIVU67RxYTZrzQ8G1duOprvxvObqHYuEZnHzTKA";
         queryUrlcollege = queryUrlcollege.replace(" ", "+");
@@ -153,29 +153,13 @@ $(document).ready(function(){
             // console.log("College stuff");
             // console.log(resultsCollege[1]);
             // console.log(resultsCollege[1].school.city);
-            console.log("resultsCollege[1][2012].academics");
-            console.log(resultsCollege[1][2012].academics);
 
-
-            console.log("resultsCollege[1][2012].cost.attendance.academic_year");
-            console.log(resultsCollege[1][2012].cost.attendance.academic_year);
-
-            console.log("resultsCollege[1][2012].aid.loan_principal");
-            console.log(resultsCollege[1][2012].aid.loan_principal);
-
-            console.log("resultsCollege[1][2012].student.retention_rate.overall.full_time");
-            console.log(resultsCollege[1][2012].student.retention_rate.overall.full_time);
-
-            console.log("resultsCollege[1][2012].admissions.sat_scores.average.overall");
-            console.log(resultsCollege[1][2012].admissions.sat_scores.average.overall);
-
-            console.log(resultsCollege[1][2011].earnings["6_yrs_after_entry"].working_not_enrolled.mean_earnings);
-            console.log(resultsCollege[1][2012].earnings["6_yrs_after_entry"].working_not_enrolled.mean_earnings);
             var cost=resultsCollege[1][2012].cost.attendance.academic_year;
             var retention= resultsCollege[1][2012].student.retention_rate.overall.full_time;
             var loan= resultsCollege[1][2012].aid.loan_principal;
             var sat= resultsCollege[1][2012].admissions.sat_scores.average.overall;
-            var collegediv =  $("<div class=item2>");
+            var collegediv =  $("<div class=item2 id='dataDiv'>");
+
 
             if (cost=== null)
             {
@@ -242,8 +226,7 @@ $(document).ready(function(){
 
             //Chart 2 data
 
-            console.log(resultsCollege[1][2012].earnings["6_yrs_after_entry"].working_not_enrolled.mean_earnings);
-            console.log(resultsCollege[1][2012].cost.attendance.academic_year);
+
             var schoolCost = resultsCollege[1][2012].cost.attendance.academic_year
             var completeionRate = resultsCollege[1][2012].completion.completion_rate_4yr_150nt
 
@@ -353,7 +336,7 @@ $(document).ready(function(){
 
 
 
-    function indeedAjax (){
+    function indeedAjax (major, locationName){
         queryUrlIndeed = "https://crossorigin.me/https://api.indeed.com/ads/apisearch?publisher=5517424191311561&q=" + major + "&l=" +
             locationName + "&sort=&radius=&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json";
 
@@ -366,41 +349,42 @@ $(document).ready(function(){
             var resultsIndeed = response2.results;
 
 
-            console.log("resultsIndeed");
-
-            console.log(resultsIndeed);
-            console.log(response2.totalResults);
-            console.log(queryUrlIndeed.replace(" ", "+"));
             for (var i= 0; i<10; i++)
             {
+                $(".job").css({"overflow":"scroll"});
+                $(".item").css({"margin":"10px"});
+                var jobsdiv =  $("<div id='divjob' class=item panel-default>");
 
-                var jobsdiv =  $("<div class=item panel-default>");
                 var job_snippet = resultsIndeed[i].snippet;
                 var job_jobtitle = resultsIndeed[i].jobtitle;
                 var p1 = $("<p>").text(resultsIndeed[i].snippet);
                 var link = resultsIndeed[i].url;
                 var job_link = $("<a href="+ link + ">" + job_jobtitle + "</a>");
-                job_link.css({"font-size":"20px", "font-weight":"bold"})
+                job_link.css({"font-size":"20px", "font-weight":"bold"});
 
                 jobsdiv.append(job_link);
                 jobsdiv.append(p1);
-                $(".job").css({"overflow":"scroll"});
-                $(".item").css({"margin":"10px"})
-                $(".job").append(jobsdiv);
+
+
+                $(".job").prepend(jobsdiv);
 
             }
 
         })
     }
 
-    $("#submit").on("click", function(event){
+    $("#submit").on("click", function (event) {
+
+        $("#dataDiv").remove();
+        $(".job").empty();
+
         event.preventDefault();
         $(".entry").hide();
         $(".information").hide();
         $(".job").show();
         $(".college").show();
-        schoolName=$("#university").val().trim();
-        schoolState=$("#state").val().trim();
+        schoolName = $("#university").val().trim();
+        schoolState = $("#state").val().trim();
         major = $("#major").val().trim();
         locationName = $("#city").val().trim();
 
@@ -409,8 +393,13 @@ $(document).ready(function(){
         console.log("schoolState");
         console.log(schoolState);
 
-        collegeAjax();
-        indeedAjax();
+        collegeAjax(schoolName, schoolState);
+        indeedAjax(major, locationName);
+
+        schoolName = $("#university").val("");
+        schoolState = $("#state").val("");
+        major = $("#major").val("");
+        locationName = $("#city").val("");
 
 
         $(".search").append($("#luniversity"));
@@ -424,27 +413,19 @@ $(document).ready(function(){
         $(".search").append($("#submit"));
 
 
-        $("#luniversity").css({"position":"relative","left":"-25px", "top":"5px", "font-size":"20px"});
-        $("#university").css({"position":"relative", "left":"-30px", "top":"-1px"});
-        $("#lmajor").css({"position":"relative","top":"0px", "left":"-33px","font-size":"20px"});
-        $("#major").css({"position":"relative","top":"0px", "left":"-35px","font-size":"20px"});
-        $("#lstate").css({"position":"relative","top":"0px", "left":"-35px","font-size":"20px"});
-        $("#state").css({"position":"relative","top":"-3px", "left":"-38px","font-size":"20px"});
-        $("#lcity").css({"position":"relative","top":"0px", "left":"-38px","font-size":"20px"});
-        $("#city").css({"position":"relative","top":"-3px", "left":"-38px","font-size":"20px"});
-        $("#submit").css({"position":"relative","top":"0px", "left":"-10px","font-size":"30px"});
-        $(".beaute").css({"height":"970px", "width":"1450px"})
+        $("#luniversity").css({"position": "relative", "left": "-25px", "top": "5px", "font-size": "20px"});
+        $("#university").css({"position": "relative", "left": "-30px", "top": "-1px"});
+        $("#lmajor").css({"position": "relative", "top": "0px", "left": "-33px", "font-size": "20px"});
+        $("#major").css({"position": "relative", "top": "0px", "left": "-35px", "font-size": "20px"});
+        $("#lstate").css({"position": "relative", "top": "0px", "left": "-35px", "font-size": "20px"});
+        $("#state").css({"position": "relative", "top": "-3px", "left": "-38px", "font-size": "20px"});
+        $("#lcity").css({"position": "relative", "top": "0px", "left": "-38px", "font-size": "20px"});
+        $("#city").css({"position": "relative", "top": "-3px", "left": "-38px", "font-size": "20px"});
+        $("#submit").css({"position": "relative", "top": "0px", "left": "-10px", "font-size": "30px"});
+        $(".beaute").css({"height": "970px", "width": "1450px"})
 
 
     });
-
-
-
-
-
-
-
-
 
 
 
