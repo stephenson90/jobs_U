@@ -136,7 +136,7 @@ $(document).ready(function(){
         }
 
     }
-    function collegeAjax (schoolName, schoolState) {
+    function collegeAjax () {
         var queryUrlcollege = "https://api.data.gov/ed/collegescorecard/v1/schools?school.name=" + schoolName +
             "&school.state=" + schoolState + "&api_key=1zIVU67RxYTZrzQ8G1duOprvxvObqHYuEZnHzTKA";
         queryUrlcollege = queryUrlcollege.replace(" ", "+");
@@ -347,7 +347,7 @@ $(document).ready(function(){
 
 
 
-    function indeedAjax (major,locationName){
+    function indeedAjax (){
         queryUrlIndeed = "https://crossorigin.me/https://api.indeed.com/ads/apisearch?publisher=5517424191311561&q=" + major + "&l=" +
             locationName + "&sort=&radius=&st=&jt=&start=&limit=&fromage=&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json";
 
@@ -400,8 +400,8 @@ $(document).ready(function(){
         console.log("schoolState");
         console.log(schoolState);
 
-        collegeAjax(schoolName, schoolState);
-        indeedAjax(major, locationName );
+        collegeAjax();
+        indeedAjax();
 
 
         $(".search").append($("#luniversity"));
