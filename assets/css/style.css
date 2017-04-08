@@ -233,7 +233,9 @@ input{
 	width: 930px;
 	position: relative;
 	left:430px;
+	text-align: center;
 	border: 1px solid white;
+	vertical-align: middle;
 	/*margin-top:10px;*/
 
 }
@@ -261,9 +263,16 @@ input{
 
 #graphContainer1{
 	position: relative;	
-	left:-250px;
-	top:-600px;
+	left:-230px;
+	top:-580px;
 }
+
+#graphContainer2{
+	position: relative;	
+	left:350px;
+	top:-580px;
+}
+
 
 
 .diffuse-light {
