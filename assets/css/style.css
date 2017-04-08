@@ -1,9 +1,11 @@
 .intro{
 	height: 50px;
-	width: 900px;
+	width: 75%;
 	position: relative;
-	left: 150px;
+	/*left: 150px;*/
+	vertical-align: middle;
 }
+
 .entry{
 	
 	position: relative;
@@ -14,10 +16,10 @@
 .back{
 
 
-	background-image: url("../images/lunar.jpg");
+	background-color: #0c2335;
 
-	min-width: 100%;
-	min-height: 100%;
+	width: 1680px;
+	min-height: 1050px;
 	margin: auto;
 }
 
@@ -25,6 +27,7 @@
 	background-image: url("../images/262.jpg"), url("../images/open.jpg");
 	width: 90%;
 	height: 770px;
+	vertical-align: middle;
 	position:relative;
 	top:100px;
 	left:70px;
@@ -42,6 +45,7 @@
 	margin: 10px;
 	width:100%;
 	text-shadow: rgba(17, 130, 97, 0.34) 2px 2px;
+
 }
 .h2style{
 	font-size: 26px !important;
@@ -49,7 +53,9 @@
 	text-align: center;
 	text-shadow: rgba(17, 130, 97, 0.34) 2px 2px;
 	position:relative;
-	left:20px;
+	left:190px;
+	top:-18px;
+	vertical-align: middle;
 }
 
 .welcome{
@@ -71,10 +77,11 @@
 
 	background-image: url("../images/1024x.jpg");
 	position:relative;
-	/*top: 0px;
-	left:150px;
-	height: 300px;*/
+	top: 20px;
+	/*left:150px;*/
+	height: 400px;
 	width: 75%;
+	vertical-align: middle;
 	margin: auto;
 	
 }
@@ -85,6 +92,9 @@
 	color:white;
 	margin:10px;
 	text-shadow: black 2px 2px;
+	vertical-align: middle;
+	position: relative;
+	left:200px;
 	
 }
 
@@ -92,17 +102,21 @@ label{
 	padding: 10px 50px 5px 20px;
 	font-size: 30px !important;
 	position: fixed; 
+	vertical-align: middle;	
+
+
 }
 
 input{
 	padding: 10px 50px 5px 20px;
-	margin:10px;	
+	margin:10px;
+	vertical-align: middle;	
 
 }
 #university{
 	position: relative;
-	left:0px;
-	top:-220px;
+	left:-550px;
+	top:-5px;
 	color:black;
 
 	
@@ -110,49 +124,53 @@ input{
 #luniversity{
 	position: relative;
 	left:-550px;
-	top:15px;
+	top:-5px;
 	
 }
 #major{
 	position: relative;
-	left:-40px;
-	top:-220px;
+	left:-523px;
+	top:-15px;
 	color:black;
 
 }
 #lmajor{
 	position: relative;
-	left:-60px;
-	top:-220px;
+	left:-530px;
+	top:-20px;
 
 }
 #state{
 	position: relative;
-	left:-30px;
-	top:-220px;
+	left:-515px;
+	top:-25px;
 	color:black;
 }
+
 #lstate{
 	position: relative;
-	left:-60px;
-	top:-220px;
+	left:-525px;
+	top:-25px;
+}
 
 #city{
 	position: relative;
-	left:-20px;
-	top:-220px;
+	left:-234px;
+	top:-30px;
 	color:black;
 }
+
 #lcity{
 	position: relative;
-	left:-60px;
-	top:-220px;
+	left:-250px;
+	top:-30px;
+
 }
 
 #submit{
 	position: relative;
-	left:350px;
-	top:-240px;
+	left:50px;
+	top:-60px;
 	color:black;
 	text-shadow: 2px 2px red;
 	font-size: 30px;
@@ -183,8 +201,8 @@ input{
 	margin:0 40px 0 140px;
 	border: 1px solid white;
 	
-	
 }
+
 
 .banner2{
 	float:left;
@@ -222,9 +240,10 @@ input{
 
 .search{
 	background-color: white;
-	margin:5px 0 5px 5px;
+	margin:15px 0 25px 5px;
 	position:relative;
 	left:10px;
+	width:93%;
 	background-image: url("../images/7.jpg");
 	
 
@@ -238,15 +257,14 @@ input{
 	left:290px;
 	}
 
-	/*.header {
-  -webkit-animation: bounceInUp 1s;
-}*/
+
 
 #graphContainer1{
 	position: relative;	
 	left:-250px;
 	top:-600px;
 }
+
 
 .diffuse-light {
   -webkit-box-sizing: content-box;
@@ -268,6 +286,23 @@ input{
 .diffuse-light:hover {
   font: normal 75px/normal "Arizonia", Helvetica, sans-serif;
   text-shadow: 0 -15px 29px rgba(0,0,0,0.0980392) , 10px -20px 5px rgba(0,0,0,0.0470588) , -10px -20px 5px rgba(0,0,0,0.0470588) ;
+}
+
+.enjoy-css {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 120px;
+  height: 40px;
+  border: none;
+  font: normal 16px/1 "Times New Roman", Times, serif;
+  color: rgba(255,255,255,1);
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  -webkit-box-shadow: 3px 3px 18px 3px rgba(0,150,255,0.91) ;
+  box-shadow: 3px 3px 18px 3px rgba(0,150,255,0.91) ;
+   
 }
 
 
