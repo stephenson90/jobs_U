@@ -38,7 +38,7 @@ $(document).ready(function(){
     function myMove() {
         var elem = document.getElementById("animate");
         var pos = 0;
-        var posl = -400;
+        var posl = -300;
         var id = setInterval(frame, 5);
         function frame() {
             if (pos == 600) {
@@ -83,7 +83,7 @@ $(document).ready(function(){
     }
 
     function startClock(){
-        var clock=3;
+        var clock=2;
 
         timeval = setInterval(downSouth, 1000);
 
@@ -141,10 +141,12 @@ $(document).ready(function(){
             "&school.state=" + schoolState + "&api_key=1zIVU67RxYTZrzQ8G1duOprvxvObqHYuEZnHzTKA";
         queryUrlcollege = queryUrlcollege.replace(" ", "+");
 
+
         $.ajax({
             url: queryUrlcollege.replace(" ", "+"),
             method: "GET"
         }).done(function collegeResponse(response1) {
+
 
             var resultsCollege = response1.results;
 
@@ -173,7 +175,7 @@ $(document).ready(function(){
             var retention= resultsCollege[1][2012].student.retention_rate.overall.full_time;
             var loan= resultsCollege[1][2012].aid.loan_principal;
             var sat= resultsCollege[1][2012].admissions.sat_scores.average.overall;
-            var collegediv =  $("<div class=‘item2’>");
+            var collegediv =  $("<div class=item2>");
 
             if (cost=== null)
             {
@@ -214,10 +216,10 @@ $(document).ready(function(){
                 sat=sat;
             }
 
-            var p3 = $("<p>").text("The cost of attendance is:" +" "+ cost);
-            var p4 = $("<p>").text("The student retention rate is:" + " "+ retention);
-            var p5 = $("<p>").text("The Aid loan principal is:" + " "+ loan);
-            var p6 = $("<p>").text("The average admissions SAT scores is:" + " "+ sat);
+            var p3 = $("<p class=item3>").text("The cost of attendance is:" +" $"+ cost);
+            var p4 = $("<p class=item3>").text("The student retention rate is:" + " "+ retention);
+            var p5 = $("<p class=item4>").text("The Aid loan principal is:" + " $"+ loan);
+            var p6 = $("<p class=item4>").text("The average admissions SAT scores is:" + " "+ sat);
 
             collegediv.append(p3);
             collegediv.append(p4);
@@ -225,6 +227,10 @@ $(document).ready(function(){
             collegediv.append(p6);
 
             $(".college").append(collegediv);
+            $(".item2").css({"position":"relative", "top":"-200px", "font-size":"25px", "font-weight":"bold"});
+            $(".item4").css({"position":"relative", "top":"0px", "left":"5px","font-size":"25px", "font-weight":"bold", "text-align":"left"});
+
+            $(".item3").css({"position":"relative", "top":"0px", "left":"-370px","font-size":"25px", "font-weight":"bold", "text-align":"left"});
 
 
             //Chart 1 data
@@ -368,15 +374,18 @@ $(document).ready(function(){
             for (var i= 0; i<10; i++)
             {
 
-                var jobsdiv =  $("<div class=‘item’>");
+                var jobsdiv =  $("<div class=item panel-default>");
                 var job_snippet = resultsIndeed[i].snippet;
                 var job_jobtitle = resultsIndeed[i].jobtitle;
                 var p1 = $("<p>").text(resultsIndeed[i].snippet);
                 var link = resultsIndeed[i].url;
                 var job_link = $("<a href="+ link + ">" + job_jobtitle + "</a>");
+                job_link.css({"font-size":"20px", "font-weight":"bold"})
 
                 jobsdiv.append(job_link);
                 jobsdiv.append(p1);
+                $(".job").css({"overflow":"scroll"});
+                $(".item").css({"margin":"10px"})
                 $(".job").append(jobsdiv);
 
             }
@@ -415,14 +424,16 @@ $(document).ready(function(){
         $(".search").append($("#submit"));
 
 
-        $("#luniversity").css({"position":"relative","left":"-160px", "top":"-3px", "font-size":"20px"});
-        $("#university").css({"position":"relative", "left":"-165px", "top":"0"});
-        $("#lmajor").css({"position":"relative","top":"0px", "left":"-160px","font-size":"20px"});
-        $("#major").css({"position":"relative","top":"0px", "left":"-165px","font-size":"20px"});
-        $("#lstate").css({"position":"relative","top":"0px", "left":"-160px","font-size":"20px"});
-        $("#state").css({"position":"relative","top":"-62px", "left":"485px","font-size":"20px"});
-        $("#submit").css({"position":"relative","top":"0px", "left":"0px","font-size":"20px"});
-        $(".beaute").css({"height":"970px"})
+        $("#luniversity").css({"position":"relative","left":"-25px", "top":"5px", "font-size":"20px"});
+        $("#university").css({"position":"relative", "left":"-30px", "top":"-1px"});
+        $("#lmajor").css({"position":"relative","top":"0px", "left":"-33px","font-size":"20px"});
+        $("#major").css({"position":"relative","top":"0px", "left":"-35px","font-size":"20px"});
+        $("#lstate").css({"position":"relative","top":"0px", "left":"-35px","font-size":"20px"});
+        $("#state").css({"position":"relative","top":"-3px", "left":"-38px","font-size":"20px"});
+        $("#lcity").css({"position":"relative","top":"0px", "left":"-38px","font-size":"20px"});
+        $("#city").css({"position":"relative","top":"-3px", "left":"-38px","font-size":"20px"});
+        $("#submit").css({"position":"relative","top":"0px", "left":"-10px","font-size":"30px"});
+        $(".beaute").css({"height":"970px", "width":"1450px"})
 
 
     });
