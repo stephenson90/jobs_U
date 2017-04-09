@@ -225,8 +225,11 @@ $(document).ready(function(){
             collegediv.append(p4);
             collegediv.append(p5);
             collegediv.append(p6);
+            var newCollege = $("<div vertical-align:middle class = divCol>");
+            $(".college").append(newCollege);            
+            $(".divCol").html(collegediv);
 
-            $(".college").append(collegediv);
+            
             $(".item2").css({"position":"relative", "top":"-200px", "font-size":"25px", "font-weight":"bold"});
             $(".item4").css({"position":"relative", "top":"0px", "left":"5px","font-size":"25px", "font-weight":"bold", "text-align":"left"});
 
@@ -385,7 +388,7 @@ $(document).ready(function(){
                 jobsdiv.append(job_link);
                 jobsdiv.append(p1);
                 $(".job").css({"overflow":"scroll"});
-                $(".item").css({"margin":"10px"})
+                $(".item").css({"margin":"10px", "background-color":"#c9d1dd", "opacity":".95"})
                 $(".job").append(jobsdiv);
 
             }
@@ -408,11 +411,13 @@ $(document).ready(function(){
         console.log(schoolName);
         console.log("schoolState");
         console.log(schoolState);
-
+        
         collegeAjax(schoolName, schoolState);
         indeedAjax(major, locationName );
 
 
+
+       
         $(".search").append($("#luniversity"));
         $(".search").append($("#university"));
         $(".search").append($("#lmajor"));
@@ -422,6 +427,10 @@ $(document).ready(function(){
         $(".search").append($("#lcity"));
         $(".search").append($("#city"));
         $(".search").append($("#submit"));
+        $("#university").html(" ");
+        $("#major").html(" ");
+        $("#city").html(" ");
+        $("#state").html(" ");
 
 
         $("#luniversity").css({"position":"relative","left":"-25px", "top":"5px", "font-size":"20px"});
