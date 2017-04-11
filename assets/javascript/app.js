@@ -382,6 +382,7 @@ $(document).ready(function(){
     $("#submit").on("click", function (event) {
 
         $("#dataDiv").remove();
+        $(".divCol").remove();
         $(".job").empty();
 
         event.preventDefault();
