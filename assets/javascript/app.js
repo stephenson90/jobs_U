@@ -139,11 +139,11 @@ $(document).ready(function(){
     function collegeAjax (schoolName, schoolState) {
         var queryUrlcollege = "https://api.data.gov/ed/collegescorecard/v1/schools?school.name=" + schoolName +
             "&school.state=" + schoolState + "&api_key=1zIVU67RxYTZrzQ8G1duOprvxvObqHYuEZnHzTKA";
-        queryUrlcollege = queryUrlcollege.replace(" ", "+");
+        queryUrlcollege = queryUrlcollege.replace(" ", "%20");
 
 
         $.ajax({
-            url: queryUrlcollege.replace(" ", "+"),
+            url: queryUrlcollege.replace(" ", "%20"),
             method: "GET"
         }).done(function collegeResponse(response1) {
 
@@ -153,6 +153,7 @@ $(document).ready(function(){
             // console.log("College stuff");
             // console.log(resultsCollege[1]);
             // console.log(resultsCollege[1].school.city);
+            console.log(queryUrlcollege)
 
             var cost=resultsCollege[1][2012].cost.attendance.academic_year;
             var retention= resultsCollege[1][2012].student.retention_rate.overall.full_time;
@@ -382,6 +383,7 @@ $(document).ready(function(){
     $("#submit").on("click", function (event) {
 
         $("#dataDiv").remove();
+        $(".divCol").remove();
         $(".job").empty();
 
         event.preventDefault();
@@ -390,6 +392,7 @@ $(document).ready(function(){
         $(".job").show();
         $(".college").show();
         schoolName = $("#university").val().trim();
+
         schoolState = $("#state").val().trim();
         major = $("#major").val().trim();
         locationName = $("#city").val().trim();
